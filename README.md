@@ -8,13 +8,13 @@ This project submission shows the design of a Model Predictive Controller (MPC) 
 ## The model
 
 The model is based on a simple dicrete state space model of a vehicle providing the vehicles position (x, y), alignment (psi) and velocity. Furthermore the calculation of the error-terms cross-track-error (cte) and alignment error (epsi) are provided.
-The state transition is defined by the following eqzuations: 
-x_[t+1] = x[t] + v[t] * cos(psi[t]) * dt 
-y_[t+1] = y[t] + v[t] * sin(psi[t]) * dt 
-psi_[t+1] = psi[t] + v[t] / Lf * delta[t] * dt 
-v_[t+1] = v[t] + a[t] * dt 
-cte[t+1] = f(x[t]) - y[t] + v[t] * sin(epsi[t]) * dt 
-epsi[t+1] = psi[t] - psides[t] + v[t] * delta[t] / Lf * dt 
+The state transition is defined by the following eqzuations:  
+x_[t+1] = x[t] + v[t] * cos(psi[t]) * dt  
+y_[t+1] = y[t] + v[t] * sin(psi[t]) * dt  
+psi_[t+1] = psi[t] + v[t] / Lf * delta[t] * dt  
+v_[t+1] = v[t] + a[t] * dt  
+cte[t+1] = f(x[t]) - y[t] + v[t] * sin(epsi[t]) * dt  
+epsi[t+1] = psi[t] - psides[t] + v[t] * delta[t] / Lf * dt  
 
 ## MPC Parameters
 For the time step length N a value of 10 time steps was choosen and for the duration dt a value of 0.1 was choosen. These values looked promising because within the simulation it could be observed that these values would create a full cornering maneuver in advance (even at higher velocities) without depleting computational ressources.
